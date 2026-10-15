@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="个人简历 · 储能科学与工程 · 齐鲁工业大学 2026级">
+<title>个人简历 | 储能科学与工程</title>
+<style>
+/* ============ 全局变量与基础重置 ============ */
+:root{
+  --navy-900:#071B33;
+  --navy-800:#0B2545;
+  --navy-700:#13315C;
+  --navy-600:#1B4079;
+  --blue:#2E6BE6;
+  --blue-light:#4E8CF7;
+  --cyan:#37B7F0;
+  --cyan-soft:#E6F3FE;
+  --ink:#1A2433;
+  --ink-2:#48566B;
+  --ink-3:#7A879B;
+  --line:#E4EAF2;
+  --bg:#F5F8FC;
+  --white:#FFFFFF;
+  --amber:#B26A00;
+  --amber-bg:#FFF5E0;
+  --radius:14px;
+  --shadow:0 1px 2px rgba(11,37,69,.04), 0 6px 18px rgba(11,37,69,.06);
+  --shadow-hover:0 4px 10px rgba(11,37,69,.06), 0 16px 36px rgba(11,37,69,.11);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html{
+  -webkit-text-size-adjust:100%;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Helvetica,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.7;
+  font-size:15px;
+  padding:0 16px 56px;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* 页面顶部淡蓝光晕，纯装饰 */
+body::before{
+  content:"";
+  position:fixed;top:0;left:0;right:0;height:280px;
+  background:radial-gradient(60% 100% at 50% 0%, rgba(46,107,230,.10), rgba(46,107,230,0) 70%);
+  pointer-events:none;z-index:0;
+}
+
+.wrap{
+  position:relative;z-index:1;
+  max-width:800px;margin:0 auto;
+}
+
+/* ============ 顶部名片：渐变名字标签 ============ */
+.card{
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  transition:transform .28s cubic-bezier(.22,.61,.36,1), box-shadow .28s ease, border-color .28s ease;
+}
+/* 鼠标划过卡片：微小浮动 */
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-hover);
+  border-color:#D3DEED;
+}
+
+.hero{
+  margin-top:28px;
+  padding:34px 34px 28px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero::after{
+  content:"";
+  position:absolute;left:0;right:0;top:0;height:3px;
+  background:linear-gradient(90deg,var(--navy-700),var(--blue),var(--cyan));
+}
+
+/* 渐变名字标签 */
+.name-tag{
+  display:inline-block;
+  padding:9px 30px;
+  border-radius:999px;
+  background:linear-gradient(120deg,var(--navy-800) 0%,var(--navy-600) 45%,var(--blue) 100%);
+  color:#fff;
+  font-size:clamp(20px,5.4vw,28px);
+  font-weight:800;
+  letter-spacing:.06em;
+  box-shadow:0 8px 22px rgba(19,49,92,.28);
+  transition:transform .3s ease, box-shadow .3s ease, letter-spacing .3s ease;
+}
+.name-tag:hover{
+  transform:translateY(-2px) scale(1.02);
+  letter-spacing:.1em;
+  box-shadow:0 12px 28px rgba(19,49,92,.36);
+}
+
+.school{
+  margin-top:14px;
+  font-size:clamp(13.5px,3.4vw,15.5px);
+  color:var(--ink-2);
+  font-weight:600;
+}
+.school .sep{color:var(--ink-3);margin:0 6px;font-weight:400;}
+.school .major{
+  color:var(--navy-700);
+  background:var(--cyan-soft);
+  padding:2px 9px;border-radius:6px;font-weight:700;
+}
+
+/* 联系方式 */
+.contact{
+  margin-top:20px;
+  display:flex;flex-wrap:wrap;justify-content:center;gap:8px 10px;
+}
+.contact a,.contact span{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:12.5px;color:var(--ink-2);
+  text-decoration:none;
+  background:#F2F6FC;
+  border:1px solid var(--line);
+  padding:6px 13px;border-radius:999px;
+  transition:all .25s ease;
+}
+.contact a:hover{
+  color:#fff;background:linear-gradient(120deg,var(--navy-700),var(--blue));
+  border-color:transparent;transform:translateY(-2px);
+  box-shadow:0 6px 16px rgba(46,107,230,.28);
+}
+
+/* 求职意向条 */
+.intent{
+  margin-top:20px;
+  padding:14px 18px;
+  border-radius:10px;
+  background:linear-gradient(120deg,#F3F8FF,#F0FAFF);
+  border:1px solid #DCE9F9;
+  border-left:3px solid var(--blue);
+  text-align:left;
+  font-size:13.5px;
+  color:var(--ink-2);
+}
+.intent b{color:var(--navy-700);font-weight:700;}
+.intent .dot{
+  display:inline-block;width:4px;height:4px;border-radius:50%;
+  background:var(--blue);vertical-align:middle;margin:0 8px;
+}
+
+/* ============ 区块通用 ============ */
+.section{margin-top:18px;padding:26px 28px;}
+.sec-head{
+  display:flex;align-items:center;gap:11px;
+  margin-bottom:18px;
+}
+.sec-idx{
+  width:26px;height:26px;flex:none;
+  border-radius:8px;
+  background:linear-gradient(135deg,var(--navy-700),var(--blue));
+  color:#fff;font-size:12.5px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 10px rgba(46,107,230,.25);
+}
+.sec-title{
+  font-size:clamp(16px,4.2vw,18.5px);
+  font-weight:750;
+  color:var(--navy-800);
+  letter-spacing:.02em;
+}
+.sec-line{flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent);}
+
+/* 条目 */
+.item + .item{
+  margin-top:16px;padding-top:16px;border-top:1px dashed var(--line);
+}
+.item-head{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;
+}
+.item-title{
+  font-size:15px;font-weight:700;color:var(--ink);
+}
+.item-title .hl{color:var(--navy-700);}
+.tag{
+  font-size:11px;font-weight:600;color:var(--navy-600);
+  background:var(--cyan-soft);
+  border:1px solid #D6E9FB;
+  padding:1.5px 8px;border-radius:5px;
+  white-space:nowrap;
+}
+.tag.ghost{
+  color:var(--ink-3);background:#F4F6F9;border-color:var(--line);
+}
+.item-date{
+  margin-left:auto;font-size:12px;color:var(--ink-3);
+  font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+
+ul.bul{margin-top:8px;list-style:none;}
+ul.bul li{
+  position:relative;padding-left:16px;
+  font-size:13.6px;color:var(--ink-2);margin-top:5px;
+}
+ul.bul li::before{
+  content:"";position:absolute;left:2px;top:11px;
+  width:5px;height:5px;border-radius:50%;
+  background:var(--blue);opacity:.75;
+}
+ul.bul li b{color:var(--navy-700);font-weight:700;}
+
+/* 待补标记：一眼可找、便于替换 */
+.todo{
+  color:var(--amber);
+  background:var(--amber-bg);
+  border-bottom:1px dashed rgba(178,106,0,.5);
+  padding:0 3px;border-radius:3px;font-weight:600;
+}
+
+/* ---------- 技能网格 ---------- */
+.skill-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+.skill{
+  padding:14px 15px;
+  border:1px solid var(--line);
+  border-radius:11px;
+  background:linear-gradient(180deg,#FCFDFF,#F7FAFD);
+  transition:transform .26s ease, box-shadow .26s ease, border-color .26s ease;
+}
+.skill:hover{
+  transform:translateY(-3px);
+  border-color:#CFE0F7;
+  box-shadow:0 8px 20px rgba(11,37,69,.09);
+}
+.skill-k{
+  display:flex;align-items:center;gap:8px;
+  font-size:13.5px;font-weight:700;color:var(--navy-700);
+  margin-bottom:5px;
+}
+.skill-k::before{
+  content:"";width:4px;height:14px;border-radius:2px;
+  background:linear-gradient(180deg,var(--blue),var(--cyan));
+}
+.skill-v{font-size:12.8px;color:var(--ink-2);line-height:1.65;}
+
+/* ---------- 时间轴 ---------- */
+.tl{position:relative;padding-left:20px;}
+.tl::before{
+  content:"";position:absolute;left:4px;top:6px;bottom:6px;width:2px;
+  background:linear-gradient(180deg,var(--blue),#D8E6F8);border-radius:2px;
+}
+.tl-item{position:relative;padding-bottom:4px;}
+.tl-item::before{
+  content:"";position:absolute;left:-20px;top:7px;
+  width:10px;height:10px;border-radius:50%;
+  background:var(--white);border:2.5px solid var(--blue);
+  box-shadow:0 0 0 3px rgba(46,107,230,.12);
+}
+
+/* ---------- 荣誉 / 证书 ---------- */
+.cert{
+  display:flex;gap:11px;align-items:flex-start;
+  padding:13px 15px;border-radius:11px;
+  border:1px solid var(--line);background:#FBFDFF;
+  transition:all .26s ease;
+}
+.cert + .cert{margin-top:10px;}
+.cert:hover{transform:translateX(4px);border-color:#CFE0F7;box-shadow:0 6px 16px rgba(11,37,69,.07);}
+.cert-ico{
+  width:28px;height:28px;flex:none;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;font-size:14px;
+  background:linear-gradient(135deg,#FFF3DC,#FFE7BE);
+}
+.cert-b{font-size:13.8px;font-weight:700;color:var(--ink);}
+.cert-d{font-size:12.5px;color:var(--ink-2);margin-top:1px;}
+
+/* ---------- 自我评价 ---------- */
+.quote{
+  position:relative;
+  padding:18px 20px 18px 22px;
+  border-radius:11px;
+  background:linear-gradient(120deg,#F4F9FF,#F1FBFF);
+  border:1px solid #DEEBFA;
+  font-size:14px;color:var(--ink-2);
+}
+.quote::before{
+  content:"“";
+  position:absolute;left:9px;top:2px;
+  font-size:46px;color:var(--blue);opacity:.18;
+  font-family:Georgia,serif;line-height:1;
+}
+.quote b{color:var(--navy-700);font-weight:700;}
+
+.footer{
+  margin-top:22px;text-align:center;
+  font-size:12px;color:var(--ink-3);
+}
+
+/* ============ 入场动画 ============ */
+.reveal{opacity:0;transform:translateY(16px);}
+.reveal.in{
+  opacity:1;transform:none;
+  transition:opacity .55s ease, transform .55s cubic-bezier(.22,.61,.36,1);
+}
+
+/* ============ 移动端 ============ */
+@media (max-width:640px){
+  body{font-size:14.5px;padding:0 12px 40px;line-height:1.68;}
+  .hero{margin-top:18px;padding:28px 18px 22px;}
+  .name-tag{padding:8px 24px;}
+  .contact{gap:7px;}
+  .contact a,.contact span{font-size:12px;padding:5.5px 11px;}
+  .intent{font-size:13px;padding:12px 14px;}
+  .section{margin-top:14px;padding:22px 18px;}
+  .skill-grid{grid-template-columns:1fr;gap:10px;}
+  ul.bul li{font-size:13.2px;}
+  .item-date{margin-left:0;width:100%;}
+  .item-title{font-size:14.6px;}
+  .quote{font-size:13.4px;padding:16px 15px 16px 17px;}
+  .cert{padding:11px 13px;}
+}
+
+@media (max-width:380px){
+  body{padding:0 9px 32px;}
+  .hero{padding:24px 14px 20px;}
+  .section{padding:19px 14px;}
+}
+
+/* 尊重系统「减少动态效果」设置 */
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;}
+  html{scroll-behavior:auto;}
+  .reveal{opacity:1;transform:none;}
+}
+
+/* 打印：去掉阴影与动画，单页输出 */
+@media print{
+  body{background:#fff;padding:0;}
+  .card{box-shadow:none;border-color:#DDE3EC;break-inside:avoid;}
+  .card:hover{transform:none;}
+  .reveal{opacity:1!important;transform:none!important;}
+  .name-tag{box-shadow:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- ========== 顶部名片 ========== -->
+  <header class="card hero reveal">
+    <div class="name-tag">姓名：苏正轩</div>
+    <div class="school">
+      齐鲁工业大学<span class="sep">·</span><span class="major">储能科学与工程</span><span class="sep">·</span>2026级本科生
+    </div>
+
+    <div class="contact">
+      <a href="tel:19577669866"><span>📱</span><span>19577669866</span></a>
+      <a href="mailto:szx1638766213@qq.com"><span>📧</span><span>szx1638766213@qq.com</span></a>
+      <span><span>🧭</span><span>MBTI: ISTJ</span></span>
+    </div>
+  </header>
+
+  <!-- ========== 一、教育背景 ========== -->
+  <section class="card section reveal">
+    <div class="sec-head">
+      <div class="sec-idx">01</div>
+      <div class="sec-title">教育背景</div>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="item">
+      <div class="item-head">
+        <div class="item-title"><span class="hl">齐鲁工业大学</span>　储能科学与工程（本科）</div>
+        <div class="item-date">2026.09 – 2030.06（预计毕业）</div>
+      </div>
+      <ul class="bul">
+        <li><b>核心课程：</b>高等数学、大学英语、计算思维、Python程序设计（自学中）、工程制图</li>
+        <li><b>专业定位：</b>面向「双碳」战略与新型电力系统建设，聚焦储能材料、储能系统集成与能源数据应用</li>
+        <li><b>学习状态：</b>善于利用 AI 工具辅助拆解难点；同时正自学前端与 Python 基础，探索储能电池数据分析方向。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========== 二、专业技能 ========== -->
+  <section class="card section reveal">
+    <div class="sec-head">
+      <div class="sec-idx">02</div>
+      <div class="sec-title">专业技能</div>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="skill-grid">
+      <div class="skill">
+        <div class="skill-k">编程语言</div>
+        <div class="skill-v">Python（零基础自学起步）：正在利用课余时间自学 Python 基础语法（变量、循环、基础数据结构），初步了解 Pandas 数据分析库。</div>
+      </div>
+      <div class="skill">
+        <div class="skill-k">前端开发</div>
+        <div class="skill-v">HTML / CSS（零基础自学入门）：可独立搭建静态网页并完成线上部署</div>
+      </div>
+      <div class="skill">
+        <div class="skill-k">AI 工具</div>
+        <div class="skill-v">熟练使用 Kimi、ChatGPT 等大模型工具辅助学习、代码生成与调试、文献检索与信息筛选</div>
+      </div>
+      <div class="skill">
+        <div class="skill-k">办公软件</div>
+        <div class="skill-v">Word / Excel / PPT 基础应用</div>
+      </div>
+      <div class="skill">
+        <div class="skill-k">语言能力</div>
+        <div class="skill-v">英语：高考英语 126 分，具备扎实的阅读与语法基础；正在积极备考 CET-4；中文母语</div>
+      </div>
+      <div class="skill">
+        <div class="skill-k">兴趣方向</div>
+        <div class="skill-v">大数据 × 新能源交叉领域，重点探索储能电池数据分析与可视化</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 三、校园 / 项目经历 ========== -->
+  <section class="card section reveal">
+    <div class="sec-head">
+      <div class="sec-idx">03</div>
+      <div class="sec-title">校园 / 项目经历</div>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="tl">
+      <div class="tl-item item">
+        <div class="item-head">
+          <div class="item-title">个人简历网页开发与上线</div>
+          <span class="tag">独立负责</span>
+          <div class="item-date">2026.09</div>
+        </div>
+        <ul class="bul">
+          <li><b>背景：</b>前端零基础、无技术团队支持，希望以实际作品验证自学能力</li>
+          <li><b>行动：</b>利用周末时间系统自学 HTML / CSS，通过 AI 工具辅助生成与调试代码，完成页面结构设计、样式排版与响应式适配</li>
+          <li><b>结果：</b><b>7 天内</b>独立完成个人简历网页并成功部署到 <b>Netlify</b>，实现线上可访问链接，完成从「零基础」到「有成品、可访问」的完整闭环</li>
+          <li><b>沉淀：</b>建立了「拆解需求 — 检索资料 — AI 辅助 — 动手调试 — 上线验证」的个人自学方法论，可复用于后续技术学习</li>
+        </ul>
+      </div>
+
+      <div class="tl-item item">
+        <div class="item-head">
+          <div class="item-title">「大数据与计算思维」方向探索</div>
+          <span class="tag">主动延伸学习</span>
+          <div class="item-date">2026.09 至今</div>
+        </div>
+        <ul class="bul">
+          <li><b>背景：</b>在《大学计算机》课程中，对董安明老师讲授的「大数据与计算思维」内容产生浓厚兴趣</li>
+          <li><b>行动：</b>课后主动添加董老师微信进行交流请教，结合自身储能专业背景，延伸检索大数据在能源领域的应用资料</li>
+          <li><b>结果：</b>确定 <b>「储能电池数据可视化分析」</b>为个人探索方向，正在梳理学习路径（数据处理 → 可视化呈现 → 电池运行数据分析）</li>
+          <li><b>目标：</b>计划结合 Python 与可视化工具，独立完成一个储能电池数据可视化小项目</li>
+        </ul>
+      </div>
+
+      <div class="tl-item item">
+        <div class="item-head">
+          <div class="item-title">高等数学攻坚计划</div>
+          <span class="tag ghost">个人学习管理</span>
+          <div class="item-date">2026.09 至今</div>
+        </div>
+        <ul class="bul">
+          <li><b>行动：</b>制定每日晚自习固定学习时段，坚持「当天内容当天消化、错题当日复盘」</li>
+          <li><b>方法：</b>课后习题全刷 + 错题重做 + 阶段性自测，逐步积累解题模型与思路</li>
+          <li><b>目标：</b>期中 / 期末考试冲击 <b>95 分以上</b>，为后续专业课与数据类课程打牢数理基础</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 四、获奖与证书 ========== -->
+  <section class="card section reveal">
+    <div class="sec-head">
+      <div class="sec-idx">04</div>
+      <div class="sec-title">获奖与证书</div>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="cert">
+      <div class="cert-ico">📐</div>
+      <div>
+        <div class="cert-b">全国大学生数学建模竞赛<span class="tag" style="margin-left:8px">在准备</span></div>
+        <div class="cert-d">备赛阶段：数理基础巩固 + 建模工具学习 + 组队</div>
+      </div>
+    </div>
+
+    <div class="cert">
+      <div class="cert-ico">🔤</div>
+      <div>
+        <div class="cert-b">大学英语四级（CET-4）<span class="tag" style="margin-left:8px">在准备</span></div>
+        <div class="cert-d">备考中</div>
+      </div>
+    </div>
+
+    <div class="cert">
+      <div class="cert-ico">🏅</div>
+      <div>
+        <div class="cert-b">高中阶段荣誉</div>
+        <div class="cert-d">乒乓球社校二等奖（协助筹办两届校级赛事）；心理剧表演校二等奖（具备良好表达力与抗压力）。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 五、自我评价 ========== -->
+  <section class="card section reveal">
+    <div class="sec-head">
+      <div class="sec-idx">05</div>
+      <div class="sec-title">自我评价</div>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="quote">
+      大一入学即明确方向：<b>能自学、能落地、对技术有真实兴趣</b>。具备较强的信息检索与工具使用能力，擅长用 AI 工具缩短学习曲线；性格沉稳（MBTI：ISTJ），做事有始有终。既有<b>死磕高数的定力</b>，也有<b>组织乒乓球赛事的执行力</b>；能承担事务性工作，更渴望在技术型探索中快速成长。
+    </div>
+  </section>
+
+  <div class="footer">最后更新：2026 年 10 月</div>
+
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* 滚动入场动画 */
+  var items = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry, i) {
+      if (entry.isIntersecting) {
+        // 轻微错峰，形成依次浮现的节奏
+        setTimeout(function () { entry.target.classList.add('in'); }, i * 70);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  items.forEach(function (el) { io.observe(el); });
+
+  /* 联系方式占位：未填写真实内容时不跳转 */
+  document.querySelectorAll('.contact a').forEach(function (a) {
+    var isTodo = a.querySelector('.todo');
+    if (isTodo) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        isTodo.style.transition = 'background .2s ease';
+        isTodo.style.background = '#FFE9C2';
+        setTimeout(function () { isTodo.style.background = ''; }, 900);
+      });
+    }
+  });
+
+  /* 移动端：避免 300ms 点击延迟 */
+  document.addEventListener('touchstart', function () {}, { passive: true });
+})();
+</script>
+
+</body>
+</html>
